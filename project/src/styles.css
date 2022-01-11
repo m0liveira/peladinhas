@@ -47,5 +47,5 @@ html {
 .active {
   transform: translateX(0) !important;
   opacity: 1 !important;
-  transition: transform 350ms ease-in-out, opacity 400ms ease-in-out !important;
+  transition: transform 500ms ease-in-out, opacity 550ms ease-in-out !important;
 }
