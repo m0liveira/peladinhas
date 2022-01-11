@@ -1,0 +1,110 @@
+body {
+  position: relative;
+  background: black;
+}
+
+/* background carroussel */
+.background-img {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+}
+
+.background-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  opacity: 1;
+  transition: opacity 500ms ease-in-out;
+}
+
+.background-img::before {
+  content: "";
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+}
+
+/* navigation bar */
+nav {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+  /* background: white;
+  box-shadow: inset 0px -8px 15px -5px rgba(0, 0, 0, 0.5); */
+  border: 1px solid red;
+  width: 100%;
+  height: 10vh;
+}
+
+/* logo */
+nav .logo {
+  width: 6%;
+  height: 85%;
+  margin-right: 10%;
+}
+
+nav .logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+/* links / buttons */
+nav a {
+  color: var(--main);
+  border: 2px solid transparent;
+  font-size: 1rem;
+  font-weight: var(--fw-600);
+  text-decoration: none;
+  padding: 5px 10px;
+  transition: border 250ms ease-in-out;
+}
+
+nav a:hover {
+  border: 2px solid var(--main);
+  transition: border 250ms ease-in-out !important;
+}
+
+nav a:nth-of-type(5) {
+  border: 2px solid var(--main);
+  background: transparent;
+}
+
+nav a:nth-of-type(5):hover {
+  background: var(--main);
+  color: black;
+  transition: color 350ms ease-in-out, background 250ms ease-in-out !important;
+}
+
+nav a:nth-of-type(4), nav a:nth-of-type(5) {
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: transform 350ms ease-in-out, opacity 400ms ease-in-out, border 250ms ease-in-out, color 350ms ease-in-out, background 250ms ease-in-out !important;
+}
+
+/* avatar img */
+nav .img-container {
+  border-radius: 50%;
+  width: 3%;
+  height: 55%;
+  overflow: hidden;
+}
+
+nav .img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  cursor: pointer;
+}
+
+
+.changeImg{
+  opacity: 0 !important;
+  transition: all 350 ease-in-out !important;
+}
+/*  */

@@ -1,1 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  /* background colors */
+
+  /* font colors */
+  --main: hsl(0, 0%, 100%);
+  --secondary: hsl(120, 55%, 18%);
+
+  /* Fonts */
+  --montserrat: Montserrat, sans-serif;
+
+  /* fonts weight */
+  --fw-400: 400;
+  --fw-500: 500;
+  --fw-600: 600;
+  --fw-700: 700;
+}
+
+/* reset */
+*,
+*:after,
+*:before {
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--montserrat);
+  font-weight: 400;
+  outline: none;
+  border: none;
+  user-select: none;
+}
+
+body {
+  width: calc(100vw - (100vw - 100%));
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.hide {
+  display: none !important;
+}
+
+.active {
+  transform: translateX(0) !important;
+  opacity: 1 !important;
+  transition: transform 350ms ease-in-out, opacity 400ms ease-in-out !important;
+}
