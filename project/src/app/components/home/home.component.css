@@ -97,6 +97,7 @@ nav .img-container img {
   cursor: pointer;
 }
 
+/* sections */
 section {
   display: flex;
   justify-content: center;
@@ -105,13 +106,62 @@ section {
   background: rgba(0, 0, 0, 0.7);
   width: 100%;
   height: 100vh;
-  border: 1px solid red;
 }
 
 section p {
   color: var(--main);
   font-size: 3rem;
   font-weight: var(--fw-400);
+}
+
+section .text-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 50%;
+  height: 60%;
+}
+
+section .text-wrapper p {
+  margin-bottom: 1.5rem;
+}
+
+section .text-wrapper .container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 25%;
+  width: 100%;
+  margin-top: .75rem;
+}
+
+section .text-wrapper .container h1 {
+  color: var(--main);
+  font-size: 1.5rem;
+  font-weight: var(--fw-400);
+  margin-right: 2rem;
+}
+
+section .text-wrapper .container h1 span {
+  margin-left: 1rem;
+}
+
+section .text-wrapper .container a {
+  background: transparent;
+  color: var(--main);
+  border: 2px solid var(--main);
+  font-size: 1rem;
+  font-weight: var(--fw-600);
+  text-decoration: none;
+  padding: 5px 10px;
+  transition: color 350ms ease-in-out, background 250ms ease-in-out;
+}
+
+section .text-wrapper .container a:hover {
+  background: var(--main);
+  color: black;
+  transition: color 350ms ease-in-out, background 250ms ease-in-out;
 }
 
 
