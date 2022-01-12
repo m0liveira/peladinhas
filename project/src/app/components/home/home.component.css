@@ -1,24 +1,3 @@
-body {
-  position: relative;
-}
-
-/* background carroussel */
-.background-img {
-  position: fixed;
-  background: black;
-  width: 100%;
-  height: 100vh;
-  z-index: -1;
-}
-
-.background-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-  opacity: 1;
-  transition: opacity 350ms ease-in-out;
-}
-
 /* navigation bar */
 nav {
   position: absolute;
@@ -97,17 +76,6 @@ nav .img-container img {
   cursor: pointer;
 }
 
-/* sections */
-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background: rgba(0, 0, 0, 0.7);
-  width: 100%;
-  height: 100vh;
-}
-
 /* texts */
 section p {
   color: var(--main);
@@ -164,11 +132,4 @@ section .text-wrapper .container a:hover {
   background: var(--main);
   color: black;
   transition: color 350ms ease-in-out, background 250ms ease-in-out;
-}
-
-
-/* independent classes */
-.changeImg {
-  opacity: 0.25 !important;
-  transition: all 350ms ease-in-out !important;
 }
