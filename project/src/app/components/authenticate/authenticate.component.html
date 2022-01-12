@@ -1,3 +1,25 @@
 <body>
-  
+  <div class="background-img">
+    <img #bgImg (load)="imageCaroussel(bgImg)" src="../../../assets/media/images/pitch1.jpg" alt="football pitch">
+  </div>
+
+  <section>
+    <form action="" method="get">
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <div class="recover">
+        <a [routerLink]="['']">Recuperar password</a>
+      </div>
+      <a [routerLink]="['']">Iniciar sessão</a>
+
+      <p>Não tem conta? <a>Registar aqui</a></p>
+
+      <div class="circle">
+        <p>Ou</p>
+      </div>
+
+      <a [routerLink]="['']">Iniciar com Facebook</a>
+      <a [routerLink]="['']">Iniciar com Instagram</a>
+    </form>
+  </section>
 </body>
