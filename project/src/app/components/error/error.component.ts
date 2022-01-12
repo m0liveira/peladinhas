@@ -12,7 +12,7 @@ export class ErrorComponent implements OnInit {
   // vars
   counter: number = 1;
   error: string = "404";
-  message: string = "page not found";
+  message: string = "página não encontrada";
 
   ngOnInit(): void {
   }

@@ -33,14 +33,53 @@ section {
 section .img-container {
   width: 15%;
   height: 30%;
-  animation: bounce 3s forwards infinite linear;
+  animation: bounce 4s forwards infinite linear;
 }
 
 section .img-container img {
   width: 100%;
   height: 100%;
   object-fit: fill;
-  animation: spin 3s forwards infinite linear;
+  animation: spin 2s forwards infinite linear;
+}
+
+section .text-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  width: 100%;
+  height: 35%;
+}
+
+section .text-wrapper h1 {
+  color: var(--main);
+  font-size: 2rem;
+  font-weight: var(--fw-400);
+}
+
+section .text-wrapper p {
+  color: var(--main);
+  font-size: 3rem;
+  font-weight: var(--fw-400);
+}
+
+/* button */
+section .text-wrapper a {
+  background: transparent;
+  color: var(--main);
+  border: 2px solid var(--main);
+  font-size: 1rem;
+  font-weight: var(--fw-600);
+  text-decoration: none;
+  padding: 5px 15px;
+  transition: color 350ms ease-in-out, background 250ms ease-in-out;
+}
+
+section .text-wrapper a:hover {
+  background: var(--main);
+  color: black;
+  transition: color 350ms ease-in-out, background 250ms ease-in-out;
 }
 
 /* independent classes */
