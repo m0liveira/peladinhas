@@ -1,4 +1,4 @@
-/* forms */
+/* #logins */
 form {
   display: flex;
   align-items: center;
@@ -19,7 +19,7 @@ form input {
   transition: padding 250ms ease-in-out, border 250ms ease-in-out;
 }
 
-form input:nth-of-type(2) {
+#login input:nth-of-type(2) {
   margin-top: 5%;
 }
 
@@ -41,7 +41,7 @@ form input:focus::placeholder {
 }
 
 /* recover password */
-form .recover {
+#login .recover {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -49,14 +49,14 @@ form .recover {
   margin-top: 5px;
 }
 
-form .recover a {
+#login .recover a {
   color: rgba(0, 0, 0, 0.75);
   font-size: .75rem;
   text-decoration: none;
   transition: all 150ms ease-in-out;
 }
 
-form .recover a:hover {
+#login .recover a:hover {
   color: rgb(0, 142, 224);
   text-decoration: underline;
   transition: all 150ms ease-in-out;
@@ -82,7 +82,7 @@ form button:hover {
 }
 
 /* separator */
-form p:before {
+#login p:before {
   content: "";
   position: absolute;
   top: -125%;
@@ -93,7 +93,7 @@ form p:before {
 }
 
 /* texts */
-form p {
+#login p {
   position: relative;
   font-size: 1rem;
   font-weight: var(--fw-500);
@@ -102,7 +102,7 @@ form p {
   width: 75%;
 }
 
-form p span {
+#login p span {
   cursor: pointer;
   color: var(--secondary);
   font-size: 1rem;
@@ -112,7 +112,7 @@ form p span {
 }
 
 /* circle */
-form .circle {
+#login .circle {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -123,13 +123,13 @@ form .circle {
   margin: 3% 0 3% 0;
 }
 
-form .circle h1 {
+#login .circle h1 {
   font-size: 1.375rem;
   text-transform: uppercase;
 }
 
 /* social media buttons */
-form .social {
+#login .social {
   position: relative;
   background: var(--main);
   border: 2px solid var(--secondary);
@@ -141,11 +141,11 @@ form .social {
   overflow: hidden;
 }
 
-form .social:nth-of-type(2) {
+#login .social:nth-of-type(2) {
   border: 2px solid #F63535;
 }
 
-form .social::before {
+#login .social::before {
   content: "";
   position: absolute;
   background-color: var(--secondary);
@@ -155,31 +155,31 @@ form .social::before {
   transition: transform 250ms ease-in-out;
 }
 
-form .social:nth-of-type(2):before {
+#login .social:nth-of-type(2):before {
   background-color: #F63535;
 
 }
 
-form .social:hover::before {
+#login .social:hover::before {
   transform: translateX(-48.5%);
   transition: all 250ms ease-in-out;
 }
 
-form .social:nth-of-type(1):hover::before {
+#login .social:nth-of-type(1):hover::before {
   transform: translateX(-47.5%);
 }
 
 
-form .social:hover .text span {
+#login .social:hover .text span {
   color: var(--secondary);
   transition: all 250ms ease-in-out;
 }
 
-form .social:nth-of-type(2):hover .text span {
+#login .social:nth-of-type(2):hover .text span {
   color: #F63535;
 }
 
-form .social .text {
+#login .social .text {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -192,7 +192,7 @@ form .social .text {
   z-index: 1;
 }
 
-form .social .text span {
+#login .social .text span {
   color: var(--main);
   font-size: 1rem;
   font-weight: var(--fw-600);
@@ -202,6 +202,68 @@ form .social .text span {
   transition: all 250ms ease-in-out;
 }
 
-.text::before {
+#login .text::before {
   display: none;
 }
+
+/* create account */
+
+#signup1 input:nth-of-type(1) {
+  margin-top: 7.5%;
+}
+
+#signup1 h1 {
+  font-size: 1.75rem;
+  font-weight: var(--fw-600);
+  margin-top: 5%;
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0 5%;
+  margin-top: 5%;
+  width: 100%;
+  height: 5px;
+}
+
+.progress-container .progress {
+  width: 20%;
+  height: 100%;
+  background: var(--secondary);
+}
+
+#signup1 .progress-container .progress:nth-of-type(2), #signup1 .progress-container .progress:nth-of-type(3) {
+  background: #d1d1d1;
+}
+
+#signup1 button:nth-of-type(1){
+  background: var(--secondary);
+  color: var(--main);
+}
+
+/* create account 2*/
+
+#signup2 input {
+  width: 40%;
+}
+
+#signup2 h1 {
+  font-size: 1.75rem;
+  font-weight: var(--fw-600);
+  margin-top: 5%;
+}
+
+#signup2 .progress-container .progress:nth-of-type(3) {
+  background: #d1d1d1;
+}
+
+#signup2 .box{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 75%;
+}
+

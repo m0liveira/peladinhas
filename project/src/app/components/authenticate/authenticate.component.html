@@ -4,7 +4,8 @@
   </div>
 
   <section>
-    <form action="" method="get">
+    <!-- login -->
+    <form #login id="login" action="" method="get" class="hide">
       <input type="email" name="email" placeholder="Endereço email" required>
       <input type="password" name="password" placeholder="Password" required>
       <div class="recover">
@@ -12,7 +13,7 @@
       </div>
       <button>Iniciar sessão</button>
 
-      <p>Não tem conta? <span>Registar aqui</span></p>
+      <p>Não tem conta? <span (click)="changeForm(login, signup1)">Registar aqui</span></p>
 
       <div class="circle">
         <h1>Ou</h1>
@@ -24,6 +25,47 @@
       <a [routerLink]="['']" class="social">
         <p class="text">Iniciar com <span>Instagram</span></p>
       </a>
+    </form>
+
+    <!-- create account #1 -->
+    <form #signup1 id="signup1" action="" method="post" class="hide">
+      <h1>Criar conta</h1>
+
+      <div class="progress-container">
+        <div class="progress"></div>
+        <div class="progress"></div>
+        <div class="progress"></div>
+      </div>
+
+      <input type="email" name="email" placeholder="Endereço email" required>
+      <input type="text" name="username" placeholder="Nome de utilizador" required>
+      <input #pass type="password" name="password" placeholder="Password" required>
+      <input #cpass type="password" name="password2" placeholder="Confirmar password" required>
+
+      <button #btnHide (click)="btnChange(btnHide, btnShow)">Confirmar</button>
+      <button #btnShow (click)="changeForm(signup1, signup2)" class="hide">Continuar</button>
+    </form>
+
+    <form #signup2 id="signup2" action="" method="post" class="">
+      <h1>Criar conta</h1>
+
+      <div class="progress-container">
+        <div class="progress"></div>
+        <div class="progress"></div>
+        <div class="progress"></div>
+      </div>
+
+      <div class="box">
+        <input type="text" name="name" placeholder="Nome">
+        <input type="text" name="region" placeholder="Localidade">
+        <input type="text" name="gender" placeholder="Género">
+        <input type="text" name="foot" placeholder="Pé favorito">
+        <input type="text" name="height" placeholder="Altura cm ex: 172">
+        <input type="text" name="weight" placeholder="Peso">
+      </div>
+
+
+      <button>Continuar</button>
     </form>
   </section>
 </body>
