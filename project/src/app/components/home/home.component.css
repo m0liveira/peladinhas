@@ -26,10 +26,10 @@ nav .logo img {
 nav a {
   color: var(--main);
   border: 2px solid transparent;
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: var(--fw-600);
   text-decoration: none;
-  padding: 5px 10px;
+  padding: 10px 15px;
   transition: border 250ms ease-in-out;
 }
 
@@ -79,7 +79,7 @@ nav .img-container img {
 /* texts */
 section p {
   color: var(--main);
-  font-size: 3rem;
+  font-size: 3.75rem;
   font-weight: var(--fw-400);
 }
 
@@ -107,7 +107,7 @@ section .text-wrapper .container {
 
 section .text-wrapper .container h1 {
   color: var(--main);
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: var(--fw-400);
   margin-right: 2rem;
 }
@@ -121,10 +121,10 @@ section .text-wrapper .container a {
   background: transparent;
   color: var(--main);
   border: 2px solid var(--main);
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: var(--fw-600);
   text-decoration: none;
-  padding: 5px 10px;
+  padding: 10px 15px;
   transition: color 350ms ease-in-out, background 250ms ease-in-out;
 }
 
