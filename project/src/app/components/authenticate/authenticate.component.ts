@@ -11,6 +11,8 @@ export class AuthenticateComponent implements OnInit {
 
   // vars
   counter: number = 1;
+  validated: boolean = false;
+  passValidated: boolean = false;
 
   ngOnInit(): void {
   }
@@ -52,5 +54,23 @@ export class AuthenticateComponent implements OnInit {
           break;
       }
     }, 10000);
+  }
+
+  changeForm(hide: HTMLElement, show: HTMLElement): void {
+    hide.classList.add("hide");
+    show.classList.remove("hide");
+  }
+
+  passValidate(pass: HTMLElement, pass2: HTMLElement): void {
+    pass.innerText == pass2.innerText ? this.passValidated = true : this.passValidated = false;
+  }
+
+  validateFields(field: HTMLElement): void {
+    field.innerText == "" ? this.validated = false : this.validated = true;
+  }
+
+  btnChange(hide: HTMLElement, show: HTMLElement): void {
+    hide.classList.add("hide");
+    show.classList.remove("hide");
   }
 }
