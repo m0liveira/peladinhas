@@ -5,21 +5,25 @@
 
   <section>
     <form action="" method="get">
-      <input type="email" name="email" placeholder="Email" required>
+      <input type="email" name="email" placeholder="Endereço email" required>
       <input type="password" name="password" placeholder="Password" required>
       <div class="recover">
         <a [routerLink]="['']">Recuperar password</a>
       </div>
-      <a [routerLink]="['']">Iniciar sessão</a>
+      <button>Iniciar sessão</button>
 
-      <p>Não tem conta? <a>Registar aqui</a></p>
+      <p>Não tem conta? <span>Registar aqui</span></p>
 
       <div class="circle">
-        <p>Ou</p>
+        <h1>Ou</h1>
       </div>
 
-      <a [routerLink]="['']">Iniciar com Facebook</a>
-      <a [routerLink]="['']">Iniciar com Instagram</a>
+      <a [routerLink]="['']" class="social">
+        <p class="text">Iniciar com <span>Facebook</span></p>
+      </a>
+      <a [routerLink]="['']" class="social">
+        <p class="text">Iniciar com <span>Instagram</span></p>
+      </a>
     </form>
   </section>
 </body>
