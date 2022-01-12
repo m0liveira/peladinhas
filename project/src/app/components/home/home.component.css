@@ -108,6 +108,7 @@ section {
   height: 100vh;
 }
 
+/* texts */
 section p {
   color: var(--main);
   font-size: 3rem;
@@ -147,6 +148,7 @@ section .text-wrapper .container h1 span {
   margin-left: 1rem;
 }
 
+/* button */
 section .text-wrapper .container a {
   background: transparent;
   color: var(--main);
@@ -170,5 +172,3 @@ section .text-wrapper .container a:hover {
   opacity: 0.25 !important;
   transition: all 350ms ease-in-out !important;
 }
-
-/*  */

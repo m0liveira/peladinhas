@@ -1,0 +1,100 @@
+body {
+  position: relative;
+}
+
+/* background carroussel */
+.background-img {
+  position: fixed;
+  background: black;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+}
+
+.background-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  opacity: 1;
+  transition: opacity 350ms ease-in-out;
+}
+
+/* sections */
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100vh;
+}
+
+section .img-container {
+  width: 15%;
+  height: 30%;
+  animation: bounce 3s forwards infinite linear;
+}
+
+section .img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  animation: spin 3s forwards infinite linear;
+}
+
+/* independent classes */
+.changeImg {
+  opacity: 0.25 !important;
+  transition: all 350ms ease-in-out !important;
+}
+
+/* animations */
+@keyframes bounce {
+  from {
+    transform: translate(-300%, -100%);
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  20% {
+    transform: translate(-200%, -0%);
+  }
+
+  40% {
+    transform: translate(-150%, -50%);
+  }
+
+  60% {
+    transform: translate(-100%, 0);
+  }
+
+  80% {
+    transform: translate(-50%, -25%);
+  }
+
+  95% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*  */
