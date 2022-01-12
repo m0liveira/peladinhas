@@ -22,13 +22,13 @@ section .text-wrapper {
 
 section .text-wrapper h1 {
   color: var(--main);
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: var(--fw-400);
 }
 
 section .text-wrapper p {
   color: var(--main);
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: var(--fw-400);
 }
 
@@ -37,10 +37,10 @@ section .text-wrapper a {
   background: transparent;
   color: var(--main);
   border: 2px solid var(--main);
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: var(--fw-600);
   text-decoration: none;
-  padding: 5px 15px;
+  padding: 10px 25px;
   transition: color 350ms ease-in-out, background 250ms ease-in-out;
 }
 
