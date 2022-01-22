@@ -5,13 +5,13 @@
 
   <section>
     <!-- login -->
-    <form #login id="login" action="" method="get" class="hide">
-      <input type="email" name="email" placeholder="Endereço email" required>
-      <input type="password" name="password" placeholder="Password" required>
+    <form class="login__form" #login="ngForm" id="login" (ngSubmit)="doLogin(login, loginMail, loginPass)">
+      <input #loginMail ngModel type="email" name="email" placeholder="Endereço email" required>
+      <input #loginPass ngModel type="password" name="password" placeholder="Password" required>
       <div class="recover">
-        <a [routerLink]="['']">Recuperar password</a>
+        <a>Recuperar password</a>
       </div>
-      <button>Iniciar sessão</button>
+      <button type="submit">Iniciar sessão</button>
 
       <p>Não tem conta? <span (click)="changeForm(login, signup1)">Registar aqui</span></p>
 
@@ -19,10 +19,10 @@
         <h1>Ou</h1>
       </div>
 
-      <a [routerLink]="['']" class="social">
+      <a class="social">
         <p class="text">Iniciar com <span>Facebook</span></p>
       </a>
-      <a [routerLink]="['']" class="social">
+      <a class="social">
         <p class="text">Iniciar com <span>Instagram</span></p>
       </a>
     </form>
@@ -37,16 +37,15 @@
         <div class="progress"></div>
       </div>
 
-      <input type="email" name="email" placeholder="Endereço email" required>
-      <input type="text" name="username" placeholder="Nome de utilizador" required>
+      <input #mail type="email" name="email" placeholder="Endereço email" required>
+      <input #username type="text" name="username" placeholder="Nome de utilizador" required>
       <input #pass type="password" name="password" placeholder="Password" required>
       <input #cpass type="password" name="password2" placeholder="Confirmar password" required>
 
-      <button #btnHide (click)="btnChange(btnHide, btnShow)">Confirmar</button>
-      <button #btnShow (click)="changeForm(signup1, signup2)" class="hide">Continuar</button>
+      <button (click)="form1Validation(mail, username, pass, cpass, signup1, signup2)">Continuar</button>
     </form>
 
-    <form #signup2 id="signup2" action="" method="post" class="">
+    <form #signup2 id="signup2" action="" method="post" class="hide">
       <h1>Criar conta</h1>
 
       <div class="progress-container">

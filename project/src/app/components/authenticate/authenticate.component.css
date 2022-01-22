@@ -30,14 +30,15 @@ form input::placeholder {
 }
 
 form input:focus {
-  border-bottom: 2px solid rgb(153, 218, 255);
+  border-bottom: 2px solid rgb(153, 218, 255) !important;
   padding: 10px;
   transition: all 250ms ease-in-out;
 }
 
 form input:focus::placeholder {
+  color: rgb(153, 218, 255) !important;
   font-size: 1.25rem;
-  transition: font-size 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
 }
 
 /* recover password */
@@ -267,3 +268,11 @@ form button:hover {
   width: 75%;
 }
 
+/* independent class */
+.wrong{
+  border-bottom-color: rgb(255, 153, 153) !important;
+}
+
+.wrong::placeholder{
+  color: rgb(255, 153, 153) !important;
+}
