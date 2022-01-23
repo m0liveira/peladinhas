@@ -11,16 +11,15 @@ export class PeladinhasAPIService {
 
   // vars
   host: string = 'localhost:3001';
-  id: number = this.userService.userID;
 
   //post links
   linkLogin: string = `http://${this.host}/auth/signin`;
   linkLogon: string = `http://${this.host}/auth/signup`;
 
   //put links
-  linkUpdateData: string = `http://${this.host}/user/data/${this.id}`;
-  linkUpdateContacts: string = `http://${this.host}/user/contact/${this.id}`;
-  linkUserID: string = `http://${this.host}/users/${this.id}`;
+  linkUpdateData: string = `http://localhost:3001/user/data/`;
+  linkUpdateContacts: string = `http://${this.host}/user/contact/`;
+  linkUserID: string = `http://${this.host}/users/`;
 
   //get links
   linkUsers: string = `http://${this.host}/users`;
@@ -33,7 +32,7 @@ export class PeladinhasAPIService {
     return this.http.post(this.linkLogin, form, { observe: 'response' });
   }
 
-  diffLogin(email, password){
+  diffLogin(email, password) {
     let form = {
       email,
       password
@@ -45,12 +44,27 @@ export class PeladinhasAPIService {
     return this.http.post(this.linkLogon, form, { observe: 'response' });
   }
 
-  updateData() {
+  // put functions
+  updateData(form) {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json; charset=utf-8',
       'Authorization': `Bearer ${this.userService.token}`
     });
-    return this.http.get(this.linkUsers, { headers: headers, observe: 'response' });
+
+    this.linkUpdateData += this.userService.userID;
+
+    return this.http.put(this.linkUpdateData, form, { headers: headers, observe: 'response' });
+  }
+
+  updateContact(form) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json; charset=utf-8',
+      'Authorization': `Bearer ${this.userService.token}`
+    });
+
+    this.linkUpdateContacts += this.userService.userID;
+
+    return this.http.put(this.linkUpdateContacts, form, { headers: headers, observe: 'response' });
   }
 
   // get functions

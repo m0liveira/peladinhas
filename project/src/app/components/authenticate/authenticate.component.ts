@@ -151,7 +151,30 @@ export class AuthenticateComponent implements OnInit {
 
   //#region update user data
 
-  
+  updateData(form, hide, show) {
+    this.peladinhasService.updateData(form.form.value).subscribe((data) => {
+      this.changeForm(hide, show);
+    }, (err) => {
+      return err;
+    });
+  }
+
+  //#endregion
+
+  //#region update user contact
+
+  updateContact(form, phone: HTMLInputElement) {
+    if (form.form.value.phone == "") {
+      phone.classList.add("wrong");
+      return;
+    };
+
+    this.peladinhasService.updateContact(form.form.value).subscribe((data) => {
+      this.router.navigate(['/Home']);
+    }, (err) => {
+      return err;
+    });
+  }
 
   //#endregion
 

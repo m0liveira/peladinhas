@@ -45,7 +45,8 @@
       <button type="submit">Continuar</button>
     </form>
 
-    <form #signup2Page #signup2="ngForm" id="signup2"  class="hide">
+    <!-- update data -->
+    <form #signup2Page #signup2="ngForm" id="signup2" (ngSubmit)="updateData(signup2, signup2Page, signup3Page)" class="hide">
       <h1>Criar conta</h1>
 
       <div class="progress-container">
@@ -55,16 +56,35 @@
       </div>
 
       <div class="box">
-        <input type="text" name="name" placeholder="Nome">
-        <input type="text" name="region" placeholder="Localidade">
-        <input type="text" name="gender" placeholder="Género">
-        <input type="text" name="foot" placeholder="Pé favorito">
-        <input type="text" name="height" placeholder="Altura cm ex: 172">
-        <input type="text" name="weight" placeholder="Peso">
+        <input ngModel type="text" name="avatar" placeholder="avatar" class="hide">
+        <input ngModel type="text" name="name" placeholder="Nome">
+        <input ngModel type="text" name="city" placeholder="Localidade">
+        <input ngModel type="text" name="gender" placeholder="Género">
+        <input #foot ngModel type="text" name="bestFoot" placeholder="Pé favorito">
+        <input ngModel type="number" name="height" min="0" max="300" placeholder="Altura cm ex: 172">
+        <input ngModel type="number" name="weight"  min="0" max="300" placeholder="Peso kg ex: 60">
       </div>
-
 
       <button type="submit">Continuar</button>
     </form>
+
+    <!-- update contacts -->
+    <form #signup3Page #signup3="ngForm" id="signup3" (ngSubmit)="updateContact(signup3, phone)" class="hide">
+      <h1>Criar conta</h1>
+
+      <div class="progress-container">
+        <div class="progress"></div>
+        <div class="progress"></div>
+        <div class="progress"></div>
+      </div>
+
+      <input #phone ngModel type="number" min="910000000 " max="969999999" name="phone" placeholder="nº de telemóvel" required>
+      <input ngModel type="text" name="twitter" placeholder="twitter ex: @nome">
+      <input ngModel type="text" name="facebook" placeholder="facebook link">
+      <input ngModel type="text" name="instagram" placeholder="instagram link">
+
+      <button type="submit">Continuar</button>
+    </form>
+
   </section>
 </body>
