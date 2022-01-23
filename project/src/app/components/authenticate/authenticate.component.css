@@ -30,14 +30,15 @@ form input::placeholder {
 }
 
 form input:focus {
-  border-bottom: 2px solid rgb(153, 218, 255);
+  border-bottom: 2px solid rgb(153, 218, 255) !important;
   padding: 10px;
   transition: all 250ms ease-in-out;
 }
 
 form input:focus::placeholder {
+  color: rgb(153, 218, 255) !important;
   font-size: 1.25rem;
-  transition: font-size 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
 }
 
 /* recover password */
@@ -206,13 +207,13 @@ form button:hover {
   display: none;
 }
 
-/* create account */
+/* create account 1 / 3 */
 
-#signup1 input:nth-of-type(1) {
+#signup1 input:nth-of-type(1), #signup3 input:nth-of-type(1) {
   margin-top: 7.5%;
 }
 
-#signup1 h1 {
+#signup1 h1, #signup3 h1 {
   font-size: 1.75rem;
   font-weight: var(--fw-600);
   margin-top: 5%;
@@ -236,11 +237,6 @@ form button:hover {
 
 #signup1 .progress-container .progress:nth-of-type(2), #signup1 .progress-container .progress:nth-of-type(3) {
   background: #d1d1d1;
-}
-
-#signup1 button:nth-of-type(1){
-  background: var(--secondary);
-  color: var(--main);
 }
 
 /* create account 2*/
@@ -267,3 +263,11 @@ form button:hover {
   width: 75%;
 }
 
+/* independent class */
+.wrong{
+  border-bottom-color: rgb(255, 153, 153) !important;
+}
+
+.wrong::placeholder{
+  color: rgb(255, 153, 153) !important;
+}

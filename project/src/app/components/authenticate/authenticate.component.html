@@ -5,30 +5,30 @@
 
   <section>
     <!-- login -->
-    <form #login id="login" action="" method="get" class="hide">
-      <input type="email" name="email" placeholder="Endereço email" required>
-      <input type="password" name="password" placeholder="Password" required>
+    <form #loginPage #login="ngForm" id="login" (ngSubmit)="doLogin(login, loginMail, loginPass)">
+      <input #loginMail ngModel type="email" name="email" placeholder="Endereço email" required>
+      <input #loginPass ngModel type="password" name="password" placeholder="Password" required>
       <div class="recover">
-        <a [routerLink]="['']">Recuperar password</a>
+        <a>Recuperar password</a>
       </div>
-      <button>Iniciar sessão</button>
+      <button type="submit">Iniciar sessão</button>
 
-      <p>Não tem conta? <span (click)="changeForm(login, signup1)">Registar aqui</span></p>
+      <p>Não tem conta? <span (click)="changeForm(loginPage, signup1Page)">Registar aqui</span></p>
 
       <div class="circle">
         <h1>Ou</h1>
       </div>
 
-      <a [routerLink]="['']" class="social">
+      <a class="social">
         <p class="text">Iniciar com <span>Facebook</span></p>
       </a>
-      <a [routerLink]="['']" class="social">
+      <a class="social">
         <p class="text">Iniciar com <span>Instagram</span></p>
       </a>
     </form>
 
     <!-- create account #1 -->
-    <form #signup1 id="signup1" action="" method="post" class="hide">
+    <form #signup1Page #signup1="ngForm" id="signup1" (ngSubmit)="doLogon(signup1, mail, username, pass, cpass, signup1Page, signup2Page)" class="hide">
       <h1>Criar conta</h1>
 
       <div class="progress-container">
@@ -37,16 +37,16 @@
         <div class="progress"></div>
       </div>
 
-      <input type="email" name="email" placeholder="Endereço email" required>
-      <input type="text" name="username" placeholder="Nome de utilizador" required>
-      <input #pass type="password" name="password" placeholder="Password" required>
-      <input #cpass type="password" name="password2" placeholder="Confirmar password" required>
+      <input #mail ngModel type="email" name="email" placeholder="Endereço email" required>
+      <input #username ngModel type="text" name="username" placeholder="Nome de utilizador" required>
+      <input #pass ngModel type="password" value="" name="password" placeholder="Password" required>
+      <input #cpass type="password" value="" name="password2" placeholder="Confirmar password" required>
 
-      <button #btnHide (click)="btnChange(btnHide, btnShow)">Confirmar</button>
-      <button #btnShow (click)="changeForm(signup1, signup2)" class="hide">Continuar</button>
+      <button type="submit">Continuar</button>
     </form>
 
-    <form #signup2 id="signup2" action="" method="post" class="">
+    <!-- update data -->
+    <form #signup2Page #signup2="ngForm" id="signup2" (ngSubmit)="updateData(signup2, signup2Page, signup3Page)" class="hide">
       <h1>Criar conta</h1>
 
       <div class="progress-container">
@@ -56,16 +56,35 @@
       </div>
 
       <div class="box">
-        <input type="text" name="name" placeholder="Nome">
-        <input type="text" name="region" placeholder="Localidade">
-        <input type="text" name="gender" placeholder="Género">
-        <input type="text" name="foot" placeholder="Pé favorito">
-        <input type="text" name="height" placeholder="Altura cm ex: 172">
-        <input type="text" name="weight" placeholder="Peso">
+        <input ngModel type="text" name="avatar" placeholder="avatar" class="hide">
+        <input ngModel type="text" name="name" placeholder="Nome">
+        <input ngModel type="text" name="city" placeholder="Localidade">
+        <input ngModel type="text" name="gender" placeholder="Género">
+        <input #foot ngModel type="text" name="bestFoot" placeholder="Pé favorito">
+        <input ngModel type="number" name="height" min="0" max="300" placeholder="Altura cm ex: 172">
+        <input ngModel type="number" name="weight"  min="0" max="300" placeholder="Peso kg ex: 60">
       </div>
 
-
-      <button>Continuar</button>
+      <button type="submit">Continuar</button>
     </form>
+
+    <!-- update contacts -->
+    <form #signup3Page #signup3="ngForm" id="signup3" (ngSubmit)="updateContact(signup3, phone)" class="hide">
+      <h1>Criar conta</h1>
+
+      <div class="progress-container">
+        <div class="progress"></div>
+        <div class="progress"></div>
+        <div class="progress"></div>
+      </div>
+
+      <input #phone ngModel type="number" min="910000000 " max="969999999" name="phone" placeholder="nº de telemóvel" required>
+      <input ngModel type="text" name="twitter" placeholder="twitter ex: @nome">
+      <input ngModel type="text" name="facebook" placeholder="facebook link">
+      <input ngModel type="text" name="instagram" placeholder="instagram link">
+
+      <button type="submit">Continuar</button>
+    </form>
+
   </section>
 </body>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -7,15 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService: UserService, router: Router) {
+    this.router = router;
+  }
 
   // vars
+  router: Router;
   isActive: boolean = false;
   counter: number = 1;
 
 
   ngOnInit(): void {
+    this.loadStorage();
+  }
 
+  loadStorage(): void {
+    if (localStorage.getItem("user") === null) {
+      return;
+    }
+
+    let user = JSON.parse(localStorage.user);
+
+    this.userService.userID = user.id;
+    this.userService.token = user.token;
   }
 
   imageCaroussel(img: HTMLImageElement): void {

@@ -1,4 +1,8 @@
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { PeladinhasAPIService } from 'src/app/services/peladinhas-api.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-authenticate',
@@ -7,12 +11,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthenticateComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private peladinhasService: PeladinhasAPIService,
+    private userService: UserService,
+    router: Router
+  ) {
+    this.router = router;
+  }
 
   // vars
+  router: Router;
   counter: number = 1;
-  validated: boolean = false;
-  passValidated: boolean = false;
 
   ngOnInit(): void {
   }
@@ -56,20 +65,120 @@ export class AuthenticateComponent implements OnInit {
     }, 10000);
   }
 
+  //#region login
+
+  doLogin(form, loginMail: HTMLElement, loginPass: HTMLElement): void {
+    if (form.form.value.email == "" || form.form.value.password == "") {
+      loginMail.classList.add("wrong");
+      loginPass.classList.add("wrong");
+      return;
+    }
+
+    // login
+    this.peladinhasService.login(form.form.value).subscribe((data) => {
+      this.userService.token = data.body['token'];
+
+      // get users id
+      this.peladinhasService.getAllUsers().subscribe((usersData) => {
+        for (let i = 0; i < Object.keys(usersData.body).length; i++) {
+          if (form.form.value.email == usersData.body[i]['email']) {
+            this.userService.userID = usersData.body[i]['userID'];
+          }
+        }
+
+        // save on local storage
+        let user = {
+          id: this.userService.userID,
+          token: this.userService.token
+        };
+        localStorage.setItem("user", JSON.stringify(user));
+
+        this.router.navigate(['/Home']);
+      },
+        (err) => {
+          return err;
+        });
+    },
+      (error) => {
+        loginMail.classList.add("wrong");
+        loginPass.classList.add("wrong");
+      }
+    );
+  }
+
+  //#endregion
+
+  //#region logon
+
+  doLogon(form, mail: HTMLElement, username: HTMLElement, pass: HTMLInputElement, cpass: HTMLInputElement, hide: HTMLElement, show: HTMLElement) {
+    if (form.form.value.email == "" || form.form.value.username == "" || form.form.value.password == "" || cpass.value == "" || form.form.value.password != cpass.value) {
+      mail.classList.add("wrong");
+      username.classList.add("wrong");
+      pass.classList.add("wrong");
+      cpass.classList.add("wrong");
+      return;
+    }
+
+    // logon
+    this.peladinhasService.logon(form.form.value).subscribe((data) => {
+      this.userService.userID = data.body['userID'];
+      let newMail: string = data.body['email'];
+      let newPass: string = form.form.value.password;
+
+      this.peladinhasService.diffLogin(newMail, newPass).subscribe((data) => {
+        this.userService.token = data.body['token'];
+
+        // save on local storage
+        let user = {
+          id: this.userService.userID,
+          token: this.userService.token
+        };
+
+        localStorage.setItem("user", JSON.stringify(user));
+      },
+        (err) => {
+          return err;
+        });
+
+      hide.classList.add("hide");
+      show.classList.remove("hide");
+    }, (err) => {
+      return err;
+    });
+  }
+
+  //#endregion
+
+  //#region update user data
+
+  updateData(form, hide, show) {
+    this.peladinhasService.updateData(form.form.value).subscribe((data) => {
+      this.changeForm(hide, show);
+    }, (err) => {
+      return err;
+    });
+  }
+
+  //#endregion
+
+  //#region update user contact
+
+  updateContact(form, phone: HTMLInputElement) {
+    if (form.form.value.phone == "") {
+      phone.classList.add("wrong");
+      return;
+    };
+
+    this.peladinhasService.updateContact(form.form.value).subscribe((data) => {
+      this.router.navigate(['/Home']);
+    }, (err) => {
+      return err;
+    });
+  }
+
+  //#endregion
+
   changeForm(hide: HTMLElement, show: HTMLElement): void {
-    hide.classList.add("hide");
-    show.classList.remove("hide");
-  }
-
-  passValidate(pass: HTMLElement, pass2: HTMLElement): void {
-    pass.innerText == pass2.innerText ? this.passValidated = true : this.passValidated = false;
-  }
-
-  validateFields(field: HTMLElement): void {
-    field.innerText == "" ? this.validated = false : this.validated = true;
-  }
-
-  btnChange(hide: HTMLElement, show: HTMLElement): void {
     hide.classList.add("hide");
     show.classList.remove("hide");
   }
