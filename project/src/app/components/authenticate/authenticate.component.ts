@@ -71,7 +71,6 @@ export class AuthenticateComponent implements OnInit {
     if (form.form.value.email == "" || form.form.value.password == "") {
       loginMail.classList.add("wrong");
       loginPass.classList.add("wrong");
-      console.log(form);
       return;
     }
 
@@ -109,17 +108,55 @@ export class AuthenticateComponent implements OnInit {
 
   //#endregion
 
+  //#region logon
+
+  doLogon(form, mail: HTMLElement, username: HTMLElement, pass: HTMLInputElement, cpass: HTMLInputElement, hide: HTMLElement, show: HTMLElement) {
+    if (form.form.value.email == "" || form.form.value.username == "" || form.form.value.password == "" || cpass.value == "" || form.form.value.password != cpass.value) {
+      mail.classList.add("wrong");
+      username.classList.add("wrong");
+      pass.classList.add("wrong");
+      cpass.classList.add("wrong");
+      return;
+    }
+
+    // logon
+    this.peladinhasService.logon(form.form.value).subscribe((data) => {
+      this.userService.userID = data.body['userID'];
+      let newMail: string = data.body['email'];
+      let newPass: string = form.form.value.password;
+
+      this.peladinhasService.diffLogin(newMail, newPass).subscribe((data) => {
+        this.userService.token = data.body['token'];
+
+        // save on local storage
+        let user = {
+          id: this.userService.userID,
+          token: this.userService.token
+        };
+
+        localStorage.setItem("user", JSON.stringify(user));
+      },
+        (err) => {
+          return err;
+        });
+
+      hide.classList.add("hide");
+      show.classList.remove("hide");
+    }, (err) => {
+      return err;
+    });
+  }
+
+  //#endregion
+
+  //#region update user data
+
+  
+
+  //#endregion
+
   changeForm(hide: HTMLElement, show: HTMLElement): void {
     hide.classList.add("hide");
     show.classList.remove("hide");
-  }
-
-  form1Validation(mail: HTMLElement, username: HTMLElement, pass: HTMLElement, cpass: HTMLElement, hide: HTMLElement, show: HTMLElement): void {
-    if (mail.innerText == "" || username.innerText == "" || pass.innerText == "" || cpass.innerText == "" || pass.innerText != cpass.innerText) {
-      pass.classList.add("wrong");
-      cpass.classList.add("wrong");
-    } else {
-      this.changeForm(hide, show);
-    }
   }
 }

@@ -239,11 +239,6 @@ form button:hover {
   background: #d1d1d1;
 }
 
-#signup1 button:nth-of-type(1){
-  background: var(--secondary);
-  color: var(--main);
-}
-
 /* create account 2*/
 
 #signup2 input {

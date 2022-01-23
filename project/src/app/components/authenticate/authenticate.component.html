@@ -5,7 +5,7 @@
 
   <section>
     <!-- login -->
-    <form class="login__form" #login="ngForm" id="login" (ngSubmit)="doLogin(login, loginMail, loginPass)">
+    <form #loginPage #login="ngForm" id="login" (ngSubmit)="doLogin(login, loginMail, loginPass)">
       <input #loginMail ngModel type="email" name="email" placeholder="Endereço email" required>
       <input #loginPass ngModel type="password" name="password" placeholder="Password" required>
       <div class="recover">
@@ -13,7 +13,7 @@
       </div>
       <button type="submit">Iniciar sessão</button>
 
-      <p>Não tem conta? <span (click)="changeForm(login, signup1)">Registar aqui</span></p>
+      <p>Não tem conta? <span (click)="changeForm(loginPage, signup1Page)">Registar aqui</span></p>
 
       <div class="circle">
         <h1>Ou</h1>
@@ -28,7 +28,7 @@
     </form>
 
     <!-- create account #1 -->
-    <form #signup1 id="signup1" action="" method="post" class="hide">
+    <form #signup1Page #signup1="ngForm" id="signup1" (ngSubmit)="doLogon(signup1, mail, username, pass, cpass, signup1Page, signup2Page)" class="hide">
       <h1>Criar conta</h1>
 
       <div class="progress-container">
@@ -37,15 +37,15 @@
         <div class="progress"></div>
       </div>
 
-      <input #mail type="email" name="email" placeholder="Endereço email" required>
-      <input #username type="text" name="username" placeholder="Nome de utilizador" required>
-      <input #pass type="password" name="password" placeholder="Password" required>
-      <input #cpass type="password" name="password2" placeholder="Confirmar password" required>
+      <input #mail ngModel type="email" name="email" placeholder="Endereço email" required>
+      <input #username ngModel type="text" name="username" placeholder="Nome de utilizador" required>
+      <input #pass ngModel type="password" value="" name="password" placeholder="Password" required>
+      <input #cpass type="password" value="" name="password2" placeholder="Confirmar password" required>
 
-      <button (click)="form1Validation(mail, username, pass, cpass, signup1, signup2)">Continuar</button>
+      <button type="submit">Continuar</button>
     </form>
 
-    <form #signup2 id="signup2" action="" method="post" class="hide">
+    <form #signup2Page #signup2="ngForm" id="signup2"  class="hide">
       <h1>Criar conta</h1>
 
       <div class="progress-container">
@@ -64,7 +64,7 @@
       </div>
 
 
-      <button>Continuar</button>
+      <button type="submit">Continuar</button>
     </form>
   </section>
 </body>
