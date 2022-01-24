@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { ErrorComponent } from './components/error/error.component';
 import { AuthenticateComponent } from './components/authenticate/authenticate.component';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ErrorComponent,
-    AuthenticateComponent
+    AuthenticateComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

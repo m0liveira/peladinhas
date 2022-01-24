@@ -1,10 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
-  /* background colors */
-
-  /* font colors */
+  /* colors */
   --main: hsl(0, 0%, 100%);
   --secondary: hsl(209, 57%, 53%);
+  --secDarker: hsl(209, 57%, 40%);
 
   /* Fonts */
   --montserrat: Montserrat, sans-serif;

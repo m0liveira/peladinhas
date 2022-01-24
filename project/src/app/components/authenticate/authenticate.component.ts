@@ -83,12 +83,16 @@ export class AuthenticateComponent implements OnInit {
         for (let i = 0; i < Object.keys(usersData.body).length; i++) {
           if (form.form.value.email == usersData.body[i]['email']) {
             this.userService.userID = usersData.body[i]['userID'];
+            this.userService.statsID = usersData.body[i]['statsID'];
+            this.userService.hostID = usersData.body[i]['hostID'];
           }
         }
 
         // save on local storage
         let user = {
           id: this.userService.userID,
+          hostID: this.userService.hostID,
+          statsID: this.userService.statsID,
           token: this.userService.token
         };
         localStorage.setItem("user", JSON.stringify(user));
@@ -122,6 +126,8 @@ export class AuthenticateComponent implements OnInit {
     // logon
     this.peladinhasService.logon(form.form.value).subscribe((data) => {
       this.userService.userID = data.body['userID'];
+      this.userService.statsID = data.body['statsID'];
+      this.userService.hostID = data.body['hostID'];
       let newMail: string = data.body['email'];
       let newPass: string = form.form.value.password;
 
@@ -131,6 +137,8 @@ export class AuthenticateComponent implements OnInit {
         // save on local storage
         let user = {
           id: this.userService.userID,
+          hostID: this.userService.hostID,
+          statsID: this.userService.statsID,
           token: this.userService.token
         };
 

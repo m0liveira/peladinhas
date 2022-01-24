@@ -1,6 +1,6 @@
 <body>
   <div class="background-img">
-    <img #bgImg (load)="imageCaroussel(bgImg)" src="../../../assets/media/images/pitch1.jpg" alt="football pitch">
+    <img #bgImg (load)="onLoad(bgImg, auth, profile)" src="../../../assets/media/images/pitch1.jpg" alt="football pitch">
   </div>
 
   <nav>
@@ -9,15 +9,15 @@
     </div>
 
     <a [routerLink]="">Criar Partida</a>
-    <a [routerLink]="">Procurar Partida</a>
-    <a [routerLink]="['/Auth']">Iniciar Sessão</a>
+    <a [routerLink]="['/Search']">Procurar Partida</a>
+    <a #auth [routerLink]="['/Auth']" class="hide">Iniciar Sessão</a>
 
-    <div class="img-container">
+    <div #profile class="img-container hide">
       <img (click)="showButtons(button, button2)" src="../../../assets/media/images/noImgUser.jfif" alt="user avatar">
     </div>
 
     <a #button [routerLink]="" class="hide">Profile</a>
-    <a #button2 [routerLink]="" class="hide">Terminar Sessão</a>
+    <a #button2 (click)="logOut()" class="hide">Terminar Sessão</a>
   </nav>
 
   <!-- intro -->

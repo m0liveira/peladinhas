@@ -1,0 +1,32 @@
+<body>
+  <div class="background-img">
+    <img #bgImg (load)="imageCaroussel(bgImg)" src="../../../assets/media/images/pitch1.jpg" alt="football pitch">
+  </div>
+
+  <div class="overlay"></div>
+
+  <section #section>
+    <nav>
+      <a [routerLink]="['/Home']">Voltar</a>
+
+      <div class="private">
+        <input type="search" placeholder="Insira o código da partida">
+        <a [routerLink]="['/']" class="search">Entrar</a>
+      </div>
+    </nav>
+
+    <div class="card" *ngFor="let match of matchList; let i = index">
+      <div class="txt-container">
+        <h1>{{match.location}} <span>➜ {{match.matchLocal}}</span></h1>
+        <p>horas: {{match.startDate}} | {{match.endDate}} <span><img src="../../../assets/media/images/user 4.png" alt="jogadores"> {{match.maxPlayers}} </span></p>
+        <p *ngIf="match.private; else Statement">Esta peladinha é privada </p>
+        <ng-template #Statement>Peladinha pública! Código: {{match.code}} </ng-template>
+      </div>
+
+      <div class="btn-container">
+        <a [routerLink]="['/']" class="details">Detalhes</a>
+        <a [routerLink]="['/']" class="join">Entrar</a>
+      </div>
+    </div>
+  </section>
+</body>
