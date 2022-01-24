@@ -6,6 +6,15 @@
   <div class="overlay"></div>
 
   <section #section>
+    <nav>
+      <a [routerLink]="['/Home']">Voltar</a>
+
+      <div class="private">
+        <input type="search" placeholder="Insira o código da partida">
+        <a [routerLink]="['/']" class="search">Entrar</a>
+      </div>
+    </nav>
+
     <div class="card" *ngFor="let match of matchList; let i = index">
       <div class="txt-container">
         <h1>{{match.location}} <span>➜ {{match.matchLocal}}</span></h1>
@@ -15,8 +24,8 @@
       </div>
 
       <div class="btn-container">
-        <a routerLink="['']" class="details">detalhes</a>
-        <a routerLink="['']" class="join">entrar</a>
+        <a [routerLink]="['/']" class="details">Detalhes</a>
+        <a [routerLink]="['/']" class="join">Entrar</a>
       </div>
     </div>
   </section>

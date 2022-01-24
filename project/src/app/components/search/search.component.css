@@ -13,6 +13,59 @@ section {
   min-height: 100vh;
 }
 
+section nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 1px solid var(--main); */
+  width: 40%;
+  height: 10vh;
+}
+
+section nav a {
+  color: var(--main);
+  border-bottom: 2px solid transparent;
+  font-size: 1.25rem;
+  font-weight: var(--fw-500);
+  text-decoration: none;
+  padding: 5px 0;
+  cursor: pointer;
+  transition: border-bottom-color 250ms ease-in-out;
+}
+
+section nav a:hover {
+  border-bottom: 2px solid var(--main);
+  transition: border-bottom-color 250ms ease-in-out;
+}
+
+section nav .private{
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  width: 80%;
+  height: 100%;
+}
+
+section nav .search {
+  background: var(--secDarker);
+  border: 2px solid var(--secDarker);
+  border-radius: 0 100px 100px 0;
+  padding: 7px 20px;
+}
+
+section nav .search:hover {
+  border: 2px solid var(--secDarker);
+}
+
+section nav input {
+  background: var(--main);
+  font-size: 1rem;
+  border-radius: 100px 0 0 100px;
+  padding: 0 15px;
+  width: 65%;
+  height: 45%;
+}
+
 section .card {
   display: flex;
   align-items: center;
