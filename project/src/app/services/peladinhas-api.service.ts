@@ -25,7 +25,7 @@ export class PeladinhasAPIService {
 
   //get links
   linkAllUsers: string = `http://${this.host}/users`;
-
+  linkAllMatches: string = `http://${this.host}/matches`;
 
   //delete links
 
@@ -133,6 +133,10 @@ export class PeladinhasAPIService {
     this.linkHost += this.userService.hostID;
 
     return this.http.get(this.linkHost, { headers: headers, observe: 'response' });
+  }
+
+  getAllMatches() {
+    return this.http.get(this.linkAllMatches);
   }
   //#endregion
 }
