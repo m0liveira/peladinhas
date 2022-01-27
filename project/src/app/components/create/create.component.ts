@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { PeladinhasAPIService } from 'src/app/services/peladinhas-api.service';
 import { UserService } from 'src/app/services/user.service';
+import { OthersService } from 'src/app/services/others.service';
 
 @Component({
   selector: 'app-create',
@@ -11,7 +12,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class CreateComponent implements OnInit {
 
-  constructor(private peladinhasService: PeladinhasAPIService, private userService: UserService, router: Router) { this.router = router; }
+  constructor(private peladinhasService: PeladinhasAPIService, private userService: UserService, private otherService: OthersService, router: Router) { this.router = router; }
 
   // vars
   router: Router;
@@ -56,8 +57,10 @@ export class CreateComponent implements OnInit {
     }
 
     this.peladinhasService.createMatch(form.form.value).subscribe((data) => {
-      // this.router.navigate(['/Home']);
-      console.log(data);
+      this.otherService.matchId = data.body['matchID'];
+      this.otherService.teamA = data.body['teamAID'];
+      this.otherService.teamB = data.body['teamBID'];
+      this.router.navigate(['/jHost']);
     }, (err) => {
       return err;
     });

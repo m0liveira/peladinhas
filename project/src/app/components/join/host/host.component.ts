@@ -1,27 +1,48 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
 import { PeladinhasAPIService } from 'src/app/services/peladinhas-api.service';
 import { OthersService } from 'src/app/services/others.service';
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  selector: 'app-host',
+  templateUrl: './host.component.html',
+  styleUrls: ['./host.component.css']
 })
-export class SearchComponent implements OnInit {
+export class HostComponent implements OnInit {
 
-  constructor(private peladinhasService: PeladinhasAPIService, private othersService: OthersService, router: Router) {
-    this.router = router;
+  constructor(private peladinhasService: PeladinhasAPIService, private othersService: OthersService) {
   }
 
-  // vars
-  router: Router;
-  counter: number = 1;
-  matchList;
+  teamAList;
+  teamBList;
 
   ngOnInit(): void {
-    this.getMatches();
+    this.getTeams();
+  }
+
+  counter: number = 1;
+
+  getTeams() {
+    this.peladinhasService.getTeamA().subscribe((data) => {
+      this.teamAList = data.body[0];
+    }, (err) => {
+      return err;
+    });
+
+    this.peladinhasService.getTeamB().subscribe((data) => {
+      this.teamBList = data.body[0];
+    }, (err) => {
+      return err;
+    });
+  }
+
+  delGame(){
+    let location = "deleted";
+    this.peladinhasService.deleteGame(location).subscribe((data) => {
+      console.log(data);
+    }, (err) => {
+      return err;
+    });
   }
 
   imageCaroussel(img: HTMLImageElement): void {
@@ -61,19 +82,5 @@ export class SearchComponent implements OnInit {
           break;
       }
     }, 10000);
-  }
-
-  // get matches info
-  getMatches() {
-    this.peladinhasService.getAllMatches().subscribe((data) => {
-      this.matchList = data.body;
-    }, (err) => {
-      return err;
-    });
-  }
-
-  getID(teamA, teamB) {
-    this.othersService.teamA = teamA;
-    this.othersService.teamB = teamA;
-  }
+  };
 }

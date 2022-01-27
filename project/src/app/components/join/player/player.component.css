@@ -1,0 +1,63 @@
+section {
+  justify-content: space-evenly;
+}
+
+.teams {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+  width: 100%;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: var(--main);
+  width: 15%;
+  height: auto;
+  padding: 25px;
+}
+
+p {
+  margin-top: 5%;
+}
+
+.join {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+button {
+  background: var(--secondary);
+  border: 2px solid var(--secondary);
+  color: var(--main);
+  font-size: 1.25rem;
+  font-weight: var(--fw-600);
+  text-decoration: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+select {
+  color: rgba(0, 0, 0, .25);
+  font-size: 1.25rem;
+  border-bottom: 2px solid rgb(218, 218, 218);
+  width: 10%;
+  padding: 4px 10px;
+  transition: padding 250ms ease-in-out, border 250ms ease-in-out, color 250ms ease-in-out;
+}
+
+select:focus {
+  color: rgb(153, 218, 255) !important;
+  padding: 4px 10px;
+  transition: all 250ms ease-in-out;
+}
+
+select option {
+  color: black;
+}
