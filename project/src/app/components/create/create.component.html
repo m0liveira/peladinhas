@@ -5,7 +5,7 @@
 
   <section>
     <!-- create game -->
-    <form #createGame #create="ngForm">
+    <form #createGame #create="ngForm" (ngSubmit)="createMatch(create, local, mlocal, sDate, eDate, payed, payValue, private, maxP, position)">
       <h1>Criar jogo</h1>
 
       <div class="wrapper">
@@ -24,8 +24,8 @@
           <option value="true" selected>Sim</option>
           <option value="false" selected>Não</option>
         </select>
-        <input #payValue ngModel type="number" name="payValue" placeholder="Valor total" required>
-        <input type="tel" placeholder="Número MBway" required>
+        <input #payValue ngModel type="number" value="0" name="payValue" placeholder="Valor total" required>
+        <input ngModel type="tel" name="mbWay" placeholder="{{mbWay}}" value="{{mbWay}}" required>
       </div>
 
       <div class="wrapper">
@@ -34,12 +34,12 @@
           <option value="true" selected>Sim</option>
           <option value="false" selected>Não</option>
         </select>
-        <input #codeP ngModel type="text" name="code" value="{{code}}" placeholder="{{code}}" readonly required>
+        <input ngModel type="text" name="code" value="{{code}}" placeholder="{{code}}" readonly required>
       </div>
 
       <div class="wrapper">
         <input #maxP ngModel type="number" name="maxPlayers" placeholder="Máximo de players" required>
-        <select name="position" required>
+        <select #position name="position" required>
           <option hidden value="" disabled selected>Posição</option>
           <option value="gr">GR</option>
           <option value="dd">DD</option>
