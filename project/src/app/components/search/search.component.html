@@ -25,7 +25,7 @@
 
       <div class="btn-container">
         <a [routerLink]="['/']" class="details">Detalhes</a>
-        <a [routerLink]="['/']" class="join">Entrar</a>
+        <a [routerLink]="['/jPlayer']" (click)="getID(match.teamAID, match.teamBID)" class="join">Entrar</a>
       </div>
     </div>
   </section>

@@ -1,0 +1,41 @@
+<body>
+  <div class="background-img">
+    <img #bgImg (load)="imageCaroussel(bgImg)" src="../../../assets/media/images/pitch1.jpg" alt="football pitch">
+  </div>
+
+  <section>
+    <div class="teams">
+      <div class="box">
+        <h1>Equipa A</h1>
+        <p>GR: {{teamAList.gr}}</p>
+        <p>DE: {{teamAList.de}}</p>
+        <p>DCE: {{teamAList.dce}}</p>
+        <p>DCD: {{teamAList.dcd}}</p>
+        <p>DD: {{teamAList.dd}}</p>
+        <p>MCE: {{teamAList.mce}}</p>
+        <p>MC: {{teamAList.mc}}</p>
+        <p>MCD: {{teamAList.mcd}}</p>
+        <p>EE: {{teamAList.ee}}</p>
+        <p>PL: {{teamAList.pl}}</p>
+        <p>ED: {{teamAList.ed}}</p>
+      </div>
+
+      <div class="box">
+        <h1>Equipa B</h1>
+        <p>GR: {{teamBList.gr}}</p>
+        <p>DE: {{teamBList.de}}</p>
+        <p>DCE: {{teamBList.dce}}</p>
+        <p>DCD: {{teamBList.dcd}}</p>
+        <p>DD: {{teamBList.dd}}</p>
+        <p>MCE: {{teamBList.mce}}</p>
+        <p>MC: {{teamBList.mc}}</p>
+        <p>MCD: {{teamBList.mcd}}</p>
+        <p>EE: {{teamBList.ee}}</p>
+        <p>PL: {{teamBList.pl}}</p>
+        <p>ED: {{teamBList.ed}}</p>
+      </div>
+    </div>
+
+    <a [routerLink]="['/playerEval']" (click)="delGame()" >Terminar jogo</a>
+  </section>
+</body>

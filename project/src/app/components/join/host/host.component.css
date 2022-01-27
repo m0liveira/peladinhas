@@ -1,0 +1,37 @@
+section{
+  justify-content: space-evenly;
+}
+
+.teams{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+  width: 100%;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: var(--main);
+  width: 15%;
+  height: auto;
+  padding: 25px;
+}
+
+p{
+  margin-top: 5%;
+}
+
+a{
+  background: #CD0000;
+  color: var(--main);
+  border: 2px solid #CD0000;
+  font-size: 1.25rem;
+  font-weight: var(--fw-600);
+  text-decoration: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}

@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserService } from 'src/app/services/user.service';
+import { OthersService } from 'src/app/services/others.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PeladinhasAPIService {
 
-  constructor(private http: HttpClient, private userService: UserService) { }
+  constructor(private http: HttpClient, private userService: UserService, private othersService: OthersService) { }
 
   // vars
   host: string = 'localhost:3001';
@@ -23,11 +24,14 @@ export class PeladinhasAPIService {
   linkUserStats: string = `http://${this.host}/user/stats/`;
   linkHost: string = `http://${this.host}/host/`;
   linkMatches: string = `http://${this.host}/matches`;
+  linkTeamA: string = `http://${this.host}/matches/teamA/`;
+  linkTeamB: string = `http://${this.host}/matches/teamB/`;
 
   //get links
   linkAllUsers: string = `http://${this.host}/users`;
 
   //delete links
+  linkDeleteMatch: string = `http://${this.host}/matches/`;
 
   //#region post functions
   login(form) {
@@ -72,6 +76,16 @@ export class PeladinhasAPIService {
     this.linkUserContacts += this.userService.userID;
 
     return this.http.put(this.linkUserContacts, form, { headers: headers, observe: 'response' });
+  }
+
+  updateTeamA(form) {
+    let newlinkTeamA = `http://${this.host}/matches/teamA/` + this.othersService.teamA;
+    return this.http.put(newlinkTeamA, form, { observe: 'response' });
+  }
+
+  updateTeamB(form) {
+    let newlinkTeamB = `http://${this.host}/matches/teamB/` + this.othersService.teamB;
+    return this.http.put(newlinkTeamB, form, { observe: 'response' });
   }
   //#endregion
 
@@ -142,5 +156,23 @@ export class PeladinhasAPIService {
   getAllMatches() {
     return this.http.get(this.linkMatches, { observe: 'response' });
   }
+
+  getTeamA() {
+    this.linkTeamA += this.othersService.teamA;
+    return this.http.get(this.linkTeamA, { observe: 'response' });
+  }
+
+  getTeamB() {
+    this.linkTeamB += this.othersService.teamB;
+    return this.http.get(this.linkTeamB, { observe: 'response' });
+  }
+  //#endregion
+
+  //#region delete functions
+  deleteGame(location) {
+    this.linkDeleteMatch += this.othersService.matchId;
+    return this.http.delete(this.linkDeleteMatch, location);
+  }
   //#endregion
 }
+
