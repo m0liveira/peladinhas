@@ -65,7 +65,7 @@ export class SearchComponent implements OnInit {
   // get matches info
   getMatches() {
     this.peladinhasService.getAllMatches().subscribe((data) => {
-      this.matchList = data;
+      this.matchList = data.body;
     }, (err) => {
       return err;
     });

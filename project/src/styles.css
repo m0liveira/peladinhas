@@ -82,3 +82,11 @@ section {
   opacity: 1 !important;
   transition: transform 500ms ease-in-out, opacity 550ms ease-in-out !important;
 }
+
+.wrong {
+  border-bottom-color: rgb(255, 153, 153) !important;
+}
+
+.wrong::placeholder {
+  color: rgb(255, 153, 153) !important;
+}

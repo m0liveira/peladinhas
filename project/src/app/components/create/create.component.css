@@ -1,0 +1,138 @@
+/* #logins */
+form {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  background: var(--main);
+  width: 35%;
+  height: 70%;
+}
+
+form .wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: calc(100% / 6);
+}
+
+/* inputs */
+form input {
+  font-size: 1.25rem;
+  border-bottom: 2px solid rgb(218, 218, 218);
+  width: 35%;
+  padding: 5px 10px;
+  transition: padding 250ms ease-in-out, border 250ms ease-in-out;
+}
+
+form input::placeholder {
+  font-size: 1rem;
+  color: rgba(0, 0, 0, .25);
+  transition: font-size 250ms ease-in-out;
+}
+
+form input:focus {
+  border-bottom: 2px solid rgb(153, 218, 255) !important;
+  padding: 10px;
+  transition: all 250ms ease-in-out;
+}
+
+form input:focus::placeholder {
+  color: rgb(153, 218, 255) !important;
+  font-size: 1.25rem;
+  transition: all 250ms ease-in-out;
+}
+
+/* buttons */
+form button, a {
+  background: var(--secondary);
+  color: var(--main);
+  border: 2px solid var(--secondary);
+  font-size: 1.25rem;
+  font-weight: var(--fw-600);
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+form h1 {
+  font-size: 1.75rem;
+  font-weight: var(--fw-600);
+  margin-top: 5%;
+}
+
+form select {
+  color: rgba(0, 0, 0, .25);
+  font-size: 1.25rem;
+  border-bottom: 2px solid rgb(218, 218, 218);
+  width: 35%;
+  padding: 4px 10px;
+  transition: padding 250ms ease-in-out, border 250ms ease-in-out, color 250ms ease-in-out;
+}
+
+form select:focus {
+  color: rgb(153, 218, 255) !important;
+  border-bottom: 2px solid rgb(153, 218, 255) !important;
+  padding: 10px;
+  transition: all 250ms ease-in-out;
+}
+
+form select option {
+  color: black;
+}
+
+a {
+  background: transparent;
+  color: #CD0000;
+  border-color: #CD0000;
+  text-decoration: none;
+  padding: 10px 20px;
+}
+
+form .wrapper:nth-of-type(3) input, form .wrapper:nth-of-type(3) select {
+  width: calc(100% / 3 - 50px);
+}
+
+form .wrapper:nth-of-type(4) input {
+  border: 2px solid rgb(218, 218, 218);
+}
+
+form .wrapper:nth-of-type(4) input::placeholder {
+  text-align: center;
+}
+
+form .wrapper:nth-of-type(4) input:focus {
+  border: 2px solid rgb(218, 218, 218) !important;
+  padding: 5px 10px;
+}
+
+form .wrapper:nth-of-type(4) input:focus::placeholder {
+  color: rgb(78, 160, 207) !important;
+  font-size: 1.25rem;
+  transition: all 250ms ease-in-out;
+}
+
+.wrapper:nth-of-type(4)::before{
+  content: "Código de convite";
+  position: absolute;
+  top: 5%;
+  left: 62%;
+  color: rgb(158, 158, 158);
+}
+
+.wrapper:nth-of-type(2)::before{
+  content: "Hora de fim";
+  position: absolute;
+  top: 5%;
+  left: 66%;
+  color: rgb(158, 158, 158);
+}
+
+.wrapper:nth-of-type(2)::after{
+  content: "Hora de início";
+  position: absolute;
+  top: 5%;
+  left: 19%;
+  color: rgb(158, 158, 158);
+}

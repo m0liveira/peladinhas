@@ -1,0 +1,64 @@
+<body>
+  <div class="background-img">
+    <img #bgImg (load)="imageCaroussel(bgImg)" src="../../../assets/media/images/pitch1.jpg" alt="football pitch">
+  </div>
+
+  <section>
+    <!-- create game -->
+    <form #createGame #create="ngForm" (ngSubmit)="createMatch(create, local, mlocal, sDate, eDate, payed, payValue, private, maxP, position)">
+      <h1>Criar jogo</h1>
+
+      <div class="wrapper">
+        <input #local ngModel type="text" name="location" placeholder="Localidade" required>
+        <input #mlocal ngModel type="text" name="matchLocal" placeholder="Local do encontro" required>
+      </div>
+
+      <div class="wrapper">
+        <input #sDate ngModel type="time" name="startDate" placeholder="Inicio da peladinha" required>
+        <input #eDate ngModel type="time" name="endDate" placeholder="Fim da peladinha" required>
+      </div>
+
+      <div class="wrapper">
+        <select #payed ngModel name="payed" required>
+          <option hidden value="" disabled selected>Campo pago</option>
+          <option value="true" selected>Sim</option>
+          <option value="false" selected>Não</option>
+        </select>
+        <input #payValue ngModel type="number" value="0" name="payValue" placeholder="Valor total" required>
+        <input ngModel type="tel" name="mbWay" placeholder="{{mbWay}}" value="{{mbWay}}" required>
+      </div>
+
+      <div class="wrapper">
+        <select #private ngModel name="private" required>
+          <option hidden value="" disabled selected>Jogo privado</option>
+          <option value="true" selected>Sim</option>
+          <option value="false" selected>Não</option>
+        </select>
+        <input ngModel type="text" name="code" value="{{code}}" placeholder="{{code}}" readonly required>
+      </div>
+
+      <div class="wrapper">
+        <input #maxP ngModel type="number" name="maxPlayers" placeholder="Máximo de players" required>
+        <select #position name="position" required>
+          <option hidden value="" disabled selected>Posição</option>
+          <option value="gr">GR</option>
+          <option value="dd">DD</option>
+          <option value="dce">DCE</option>
+          <option value="dcd">DCD</option>
+          <option value="de">DE</option>
+          <option value="mce">MCE</option>
+          <option value="mc">MC</option>
+          <option value="mcd">MCD</option>
+          <option value="ee">EE</option>
+          <option value="ed">ED</option>
+          <option value="pl">PL</option>
+        </select>
+      </div>
+
+      <div class="wrapper">
+        <a [routerLink]="['/Home']">Cancelar</a>
+        <button type="submit">Continuar</button>
+      </div>
+    </form>
+  </section>
+</body>
