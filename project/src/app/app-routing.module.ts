@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthenticateComponent } from './components/authenticate/authenticate.component';
+import { CreateComponent } from './components/create/create.component';
 import { ErrorComponent } from './components/error/error.component';
 import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   },
   { path: 'Home', component: HomeComponent },
   { path: 'Auth', component: AuthenticateComponent },
+  { path: 'Create', component: CreateComponent },
   { path: 'Search', component: SearchComponent },
   { path: 'Error', component: ErrorComponent },
   { path: '**', redirectTo: 'Error' },

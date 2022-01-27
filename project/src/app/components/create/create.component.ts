@@ -4,23 +4,30 @@ import { Router } from '@angular/router';
 import { PeladinhasAPIService } from 'src/app/services/peladinhas-api.service';
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  selector: 'app-create',
+  templateUrl: './create.component.html',
+  styleUrls: ['./create.component.css']
 })
-export class SearchComponent implements OnInit {
+export class CreateComponent implements OnInit {
 
-  constructor(private peladinhasService: PeladinhasAPIService, router: Router) {
-    this.router = router;
-  }
+  constructor(private peladinhasService: PeladinhasAPIService, router: Router) { this.router = router; }
 
   // vars
   router: Router;
   counter: number = 1;
-  matchList;
+  code: string = "";
 
   ngOnInit(): void {
-    this.getMatches();
+    this.codeGen(6);
+  }
+
+  codeGen(length) {
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+      this.code += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    console.log(this.code);
   }
 
   imageCaroussel(img: HTMLImageElement): void {
@@ -62,12 +69,4 @@ export class SearchComponent implements OnInit {
     }, 10000);
   }
 
-  // get matches info
-  getMatches() {
-    this.peladinhasService.getAllMatches().subscribe((data) => {
-      this.matchList = data.body;
-    }, (err) => {
-      return err;
-    });
-  }
 }

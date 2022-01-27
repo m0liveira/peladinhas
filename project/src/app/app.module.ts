@@ -9,6 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ErrorComponent } from './components/error/error.component';
 import { AuthenticateComponent } from './components/authenticate/authenticate.component';
 import { SearchComponent } from './components/search/search.component';
+import { CreateComponent } from './components/create/create.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SearchComponent } from './components/search/search.component';
     HomeComponent,
     ErrorComponent,
     AuthenticateComponent,
-    SearchComponent
+    SearchComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,

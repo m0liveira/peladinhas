@@ -22,10 +22,10 @@ export class PeladinhasAPIService {
   linkUserID: string = `http://${this.host}/users/`;
   linkUserStats: string = `http://${this.host}/user/stats/`;
   linkHost: string = `http://${this.host}/host/`;
+  linkMatches: string = `http://${this.host}/matches`;
 
   //get links
   linkAllUsers: string = `http://${this.host}/users`;
-  linkAllMatches: string = `http://${this.host}/matches`;
 
   //delete links
 
@@ -44,6 +44,10 @@ export class PeladinhasAPIService {
 
   logon(form) {
     return this.http.post(this.linkLogon, form, { observe: 'response' });
+  }
+
+  createMatch(form) {
+    return this.http.post(this.linkMatches, form, { observe: 'response' });
   }
   //#endregion
 
@@ -136,7 +140,7 @@ export class PeladinhasAPIService {
   }
 
   getAllMatches() {
-    return this.http.get(this.linkAllMatches);
+    return this.http.get(this.linkMatches, { observe: 'response' });
   }
   //#endregion
 }
